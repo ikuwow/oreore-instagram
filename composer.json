@@ -1,0 +1,6 @@
+{
+    "require": {
+        "league/oauth2-instagram": "^0.2.1",
+        "league/oauth2-client": "^1.1"
+    }
+}
