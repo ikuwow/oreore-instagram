@@ -9,14 +9,14 @@
 <h1>oreore instagram</h1>
 
 <?php if ($isLoggedIn): ?>
-  <p>Please click links.</p>
-  <ul>
-    <?php $instagrams = require('./instagram-accounts.php'); ?>
+  <h2>Favorites feed</h2>
+  <?php $instagrams = require('./instagram-accounts.php'); ?>
+  <ul id="insta-list" style="display:none;">
     <?php foreach ($instagrams as $insta): ?>
-      <li><a href="<?=$insta?>" target="_blank"><?=$insta?></a></li>
-    <?php endforeach; ?>
+    <li><?=$insta['id']?></li>
+    <?php endforeach;?>
   </ul>
-
+  <div id="favorites-feed"></div>
   <h2>My feed</h2>
   <div id="my-feed"></div>
   <a href="/logout.php">Log out</a>
