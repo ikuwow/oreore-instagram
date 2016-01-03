@@ -16,7 +16,13 @@
     <li><?=$insta['id']?></li>
     <?php endforeach;?>
   </ul>
-  <div id="favorites-feed"></div>
+  <div id="favorites-feed">
+  <ul>
+    <?php foreach ($instagrams as $insta): ?>
+      <li><a href="<?=$insta['url']?>"><?=$insta['url']?></a></li>
+    <?php endforeach;?>
+  </ul>
+  </div>
   <h2>My feed</h2>
   <div id="my-feed"></div>
   <a href="/logout.php">Log out</a>
