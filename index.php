@@ -20,5 +20,6 @@
   <a href="/login.php">Login with Instagram</a>
 <?php endif;?>
 
+<script src="main.js"></script>
 </body>
 </html>
