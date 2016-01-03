@@ -1,5 +1,7 @@
 <?php
 
+require_once './_config.php';
+
 $instagrams = [
     "https://www.instagram.com/nanjolno/",
     "https://www.instagram.com/mogatanpe/",
@@ -19,13 +21,18 @@ $instagrams = [
 <body>
 
 <h1>oreore instagram</h1>
-<p>Please click links.</p>
 
-<ul>
-  <?php foreach ($instagrams as $insta): ?>
-    <li><a href="<?=$insta?>" target="_blank"><?=$insta?></a></li>
-  <?php endforeach; ?>
-</ul>
+<?php if ($isLoggedIn): ?>
+  <p>Please click links.</p>
+  <ul>
+    <?php foreach ($instagrams as $insta): ?>
+      <li><a href="<?=$insta?>" target="_blank"><?=$insta?></a></li>
+    <?php endforeach; ?>
+  </ul>
+  <a href="/logout.php">Log out</a>
+<?php else: ?>
+  <a href="/login.php">Login with Instagram</a>
+<?php endif;?>
 
 </body>
 </html>
