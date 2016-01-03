@@ -7,7 +7,7 @@ var requestAjax = function(endpoint, callback) {
             callback(this.response);
         }
     };
-    xhr.responseType = 'jsonp';
+    xhr.responseType = 'json';
     xhr.open('GET',endpoint,true);
     xhr.send();
 };
@@ -17,11 +17,23 @@ var accessToken;
 var baseEndpoint = 'https://api.instagram.com/v1';
 
 requestAjax('/token.php',function(r){
+
     accessToken = r.token;
-    console.log(accessToken);
+
+    var script = document.createElement('script');
+    script.src = baseEndpoint+'/users/self/media/recent/?access_token='+accessToken+'&callback=instaCallback';
+    window.instaCallback = function(data) {
+        data = data.data;
+        data.forEach(function(eachData){
+            var dummy = document.createElement('div');
+dummy.innerHTML = '<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="6" style=""><a href="'+eachData.link+'" target="_blank"></a> </blockquote>';
+            var myFeed = document.getElementById('my-feed');
+            myFeed.appendChild(dummy);
+        },data);
+    };
+    document.body.appendChild(script);
 });
 
-
-
-
 })();
+
+
