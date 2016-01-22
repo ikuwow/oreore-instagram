@@ -7,6 +7,8 @@
 </head>
 <body>
 
+<div class="container">
+
 <h1>oreore instagram</h1>
 
 <?php if ($isLoggedIn): ?>
@@ -26,14 +28,16 @@
   </div>
   <h2>My feed</h2>
   <div id="my-feed"></div>
-  <a href="/logout.php">Log out</a>
+  <a href="/logout.php" class="btn btn-secondary">Log out</a>
 <?php else: ?>
-  <a href="/login.php">Login with Instagram</a>
+  <a href="/login.php" class="btn btn-primary">Login with Instagram</a>
 <?php endif;?>
 
 <footer>
   ikuwow All rights reserved. <a href="/privacy.php">Privacy policy</a>
 </footer>
+
+</div><!-- .container -->
 
 <script src="main.js"></script>
 <script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
